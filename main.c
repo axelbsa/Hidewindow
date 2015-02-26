@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 	BOOL hotKey = FALSE;
 	ATOM hide_hotKeyID;
 	ATOM close_hotKeyID;
-    HWND handle;
+	HWND handle;
 	HWND this;
 	MSG msg = {0};
 	
@@ -24,14 +24,14 @@ int main(int argc, char **argv)
 	
 	hide_hotKeyID = GlobalAddAtom("hiderandomwindow");
 	if (RegisterHotKey(NULL,hide_hotKeyID,MOD_ALT,0x48))
-    {
+	{
 		//printf("Hotkey 'ALT+h' registered, using MOD_NOREPEAT flag\n");
 		//MessageBox(this,"Hotkey 'ALT+h' registered, using MOD_NOREPEAT flag\n","Main window handle",0);
 	}
 	
 	close_hotKeyID = GlobalAddAtom("closeMainApp");
 	if (RegisterHotKey(NULL,close_hotKeyID,MOD_ALT,0x51))
-    {
+	{
 		//printf("Hotkey 'ALT+q' registered, using MOD_NOREPEAT flag\n");
 		//MessageBox(this,"Hotkey 'ALT+h' registered, using MOD_NOREPEAT flag\n","Main window handle",0);
 	}
@@ -46,6 +46,7 @@ int main(int argc, char **argv)
 				{
 					if (hotKey)
 						ShowWindow(handle,SW_SHOW);
+						
 					MessageBox(this,"Hider avsluttes","Main window handle",MB_OK|MB_ICONINFORMATION|MB_TASKMODAL);
 					break;
 				}
